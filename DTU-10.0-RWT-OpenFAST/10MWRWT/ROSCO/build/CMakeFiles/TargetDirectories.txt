@@ -1,7 +1,0 @@
-/home/dzm305/openfast/DTU10MWRWT/ReferenceModal/ROSCO/build/CMakeFiles/install/strip.dir
-/home/dzm305/openfast/DTU10MWRWT/ReferenceModal/ROSCO/build/CMakeFiles/edit_cache.dir
-/home/dzm305/openfast/DTU10MWRWT/ReferenceModal/ROSCO/build/CMakeFiles/discon.dir
-/home/dzm305/openfast/DTU10MWRWT/ReferenceModal/ROSCO/build/CMakeFiles/list_install_components.dir
-/home/dzm305/openfast/DTU10MWRWT/ReferenceModal/ROSCO/build/CMakeFiles/install/local.dir
-/home/dzm305/openfast/DTU10MWRWT/ReferenceModal/ROSCO/build/CMakeFiles/rebuild_cache.dir
-/home/dzm305/openfast/DTU10MWRWT/ReferenceModal/ROSCO/build/CMakeFiles/install.dir
