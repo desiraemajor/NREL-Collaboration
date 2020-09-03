@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=about:client
+HostUrl=https://gitlab.windenergy.dtu.dk/OpenLAC/BasicDTUController/-/raw/c603390aba123d197f2986632b628f84bcaec0ee/src/dtu_we_controller_bladed/Makefile?inline=false

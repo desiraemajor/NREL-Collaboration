@@ -1,0 +1,8 @@
+rev_hash = b0234aa
+
+hash_tmp = 999fc704d86dd6fc3722130b81cb4e45f841f4cc
+
+last_tag = 0.4-5-gb0234aa
+
+rev_count_since_tag = 0
+
