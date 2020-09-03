@@ -659,8 +659,6 @@ subroutine update_regulation(array1, array2) bind(c,name='update_regulation')
    endif
    ! Rotor (Generator) speed in LSS
    ! We have to fix this Gearbox ratio issue
-   ! write(*,*) 'Input value for minimum generator speed is ' ,array1( 2)
-
    GenSpeed = array1( 2)/GearRatio
    ! Pitch angle
    PitchVect(1) = array1(3)
@@ -710,16 +708,6 @@ subroutine update_regulation(array1, array2) bind(c,name='update_regulation')
    !***********************************************************************************************
    ! Wind turbine controller
    !***********************************************************************************************
-   ! Debug: check initial inputs sent to turbine_controller upon startup
-   !write(*,*) 'Turbine_controller inputs for start-up routine...'
-   !write(*,*) 'CtrlStatus is ',CtrlStatus
-   !write(*,*) 'GenSpeed is ',GenSpeed
-   !write(*,*) 'PitchVect is ',PitchVect
-   !write(*,*) 'Wind speed is ',wsp
-   !write(*,*) 'Electrical power is ',Pe
-   !write(*,*) 'Reference generator torque is ',GenTorqueRef
-   !write(*,*) 'Reference collective pitch is ',PitchColRef
-
    call turbine_controller(CtrlStatus, GridFlag, GenSpeed, PitchVect, wsp, Pe, TT_acc, &
                            GenTorqueRef, PitchColRef, dump_array)
    !***********************************************************************************************

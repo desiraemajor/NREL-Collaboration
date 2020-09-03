@@ -672,7 +672,7 @@ subroutine torquecontroller(GenSpeed, GenSpeedFilt, dGenSpeed_dtFilt, PitchMean,
       else
          GenSpeedRef = GenSpeedRefMin
       endif
-   case (2) 
+   case (2)
       ! This option should be combined with effective wind speed estimator for industry application
       GenSpeedRef = WSPfilt*TSR_opt/R
       GenSpeedRef = min(max(GenSpeedRef, GenSpeedRefMin), GenSpeedRefMax)
@@ -680,6 +680,7 @@ subroutine torquecontroller(GenSpeed, GenSpeedFilt, dGenSpeed_dtFilt, PitchMean,
    ! Rotor speed error
    GenSpeedErr = GenSpeed - GenSpeedRef
    GenSpeedFiltErr = GenSpeedFilt - GenSpeedRef
+
    !-----------------------------------------------------------------------------------------------
    ! Filter generator speed if drive train dampin is actived
    !-----------------------------------------------------------------------------------------------
@@ -741,24 +742,24 @@ subroutine torquecontroller(GenSpeed, GenSpeedFilt, dGenSpeed_dtFilt, PitchMean,
 
    ! Check derating limits
    ! TODO: check to see if it is needed when using min ct strategy
-   if (deratevar%strat > 0 .and. deratevar%strat < 3) then
-     outmin = min(outmin, GenTorqueRated)
-     outmax = min(outmax, GenTorqueRated)
-   endif
+   !if (deratevar%strat > 0 .and. deratevar%strat < 3) then
+   !  outmin = min(outmin, GenTorqueRated)
+   !  outmax = min(outmax, GenTorqueRated)
+   !endif
    !***********************************************************************************************
    ! Rotor speed exclusion zone
    !***********************************************************************************************
-   call rotorspeedexcl(GenSpeedFilt, Pe/GenSpeed, GenTorqueMin_partial, GenTorqueMax_partial, GenSpeedFiltErr, &
-                       outmax, outmin, dump_array)
+   !call rotorspeedexcl(GenSpeedFilt, Pe/GenSpeed, GenTorqueMin_partial, GenTorqueMax_partial, GenSpeedFiltErr, &
+   !                    outmax, outmin, dump_array)
    !-----------------------------------------------------------------------------------------------
    ! Check the generator torque limits
    !-----------------------------------------------------------------------------------------------
-   if ((abs(outmax-outmax_old)/deltat) .gt. PID_gen_var%velmax) then
-     outmax = outmax_old + dsign(PID_gen_var%velmax*deltat, outmax-outmax_old)
-   endif
-   if ((abs(outmin-outmin_old)/deltat) .gt. PID_gen_var%velmax) then
-     outmin = outmin_old + dsign(PID_gen_var%velmax*deltat, outmin-outmin_old)
-   endif
+   !if ((abs(outmax-outmax_old)/deltat) .gt. PID_gen_var%velmax) then
+   !  outmax = outmax_old + dsign(PID_gen_var%velmax*deltat, outmax-outmax_old)
+   !endif
+   !if ((abs(outmin-outmin_old)/deltat) .gt. PID_gen_var%velmax) then
+   !  outmin = outmin_old + dsign(PID_gen_var%velmax*deltat, outmin-outmin_old)
+   !endif
 
    PID_gen_var%outmin = outmin
    PID_gen_var%outmax = outmax

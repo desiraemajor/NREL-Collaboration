@@ -109,9 +109,9 @@ function PID(stepno, dt, kgain, PIDvar, error)
       PIDvar%error1_old = PIDvar%error1
    endif
    ! Update the integral term
-   PIDvar%outset = PIDvar%outset1_old + 0.5_mk*(error + PIDvar%error1_old)*Kgain(2)*PIDvar%Kint*dt
+   PIDvar%outset = PIDvar%outset1_old + 0.5_mk*(error + PIDvar%error1)*Kgain(2)*PIDvar%Kint*dt   
    ! Update proportional term
-   PIDvar%outpro = Kgain(1)*PIDvar%Kpro*0.5_mk*(error + PIDvar%error1_old)
+   PIDvar%outpro = Kgain(1)*PIDvar%Kpro*0.5_mk*(error + PIDvar%error1)                              				 
    ! Update differential term
    PIDvar%outdif = Kgain(3)*PIDvar%Kdif*(error - PIDvar%error1_old)/dt
    ! Sum to up
@@ -138,6 +138,7 @@ function PID(stepno, dt, kgain, PIDvar, error)
       PID = 0.0_mk
    else
       PID = PIDvar%outres
+      !write(*,*) 'PID output is ' ,PIDvar%outres                                                !***WRITING OUTPUT
    endif
    return
 end function PID
